@@ -1,0 +1,9 @@
+#parameter personalisasi
+
+NIM : 2510514016
+N = 16 (2510514016 mod 100)
+a = 1 (floor(16/10))
+b = 6 (16 mod 10)
+k = 8 (K = 1 + 6 + 1)
+theta0 = 60 Derajat ((1 × 30) + (6 × 5))
+α = 0.007 (0.001 × (5 + 1))
