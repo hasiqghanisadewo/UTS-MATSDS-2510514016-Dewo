@@ -11,9 +11,41 @@
 clc; clear; close all;
 
 % Parameter
-a = 1;
-b = 6;
-K = 8;
+N = 16;  
+a = 1;  
+b = 6;  
+K = 8; 
+theta0 = 60;  % derajat 
+alpha_lr = 0.007;
+
+% 1. Definisi Himpunan berdasarkan data soal
+A = [16, 18, 20, 23, 26, 29, 31];
+B = [19, 21, 23, 26, 28, 34];
+C = [17, 23, 26, 27, 33, 36];
+U = 16:36; % Semesta dari 16 sampai 36
+
+disp('Hasil Verifikasi MATLAB')
+
+% a. Irisan tiga himpunan (A ∩ B ∩ C)
+irisan_abc = intersect(intersect(A, B), C);
+fprintf('1. A ∩ B ∩ C = {%s}, Jumlah = %d\n', num2str(irisan_abc), length(irisan_abc));
+
+% b. Gabungan tiga himpunan (A ∪ B ∪ C)
+gabungan_abc = union(union(A, B), C);
+fprintf('2. A ∪ B ∪ C = {%s}, jumlahnya = %d elemen\n', num2str(gabungan_abc), length(gabungan_abc));
+
+% c. (A ∪ B) ∩ C' (Artinya: ada di A atau B, tapi tidak di C)
+gabungan_ab = union(A, B);
+hasil_3 = setdiff(gabungan_ab, C);
+fprintf('3. (A ∪ B) ∩ C'' = {%s}, Jumlah = %d\n', num2str(hasil_3), length(hasil_3));
+
+% d. Symmetric Difference (A ⊕ B)
+hasil_4 = setxor(A, B);
+fprintf('4. A ⊕ B = {%s}, Jumlah = %d\n', num2str(hasil_4), length(hasil_4));
+
+% e. Mencari angka di luar lingkaran (Angka di U tapi tidak di A, B, atau C)
+luar_lingkaran = setdiff(U, gabungan_abc);
+fprintf('Elemen di luar lingkaran (U - (A∪B∪C)): {%s}\n', num2str(luar_lingkaran));
 
 % Definisi fungsi
 f = @(x) K*x + (a+b);          % f(x) = 8x + 7
