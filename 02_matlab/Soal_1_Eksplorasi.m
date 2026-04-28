@@ -40,6 +40,10 @@ fprintf('Mode = %.2f\n', mode(D));
 fprintf('Range = %.2f\n', range(D));
 fprintf('Standar Deviasi (Populasi) = %.2f\n', std(D,1));
 
+% Time stamp
+disp('time stamp');
+disp(datetime('now'));
+
 % =========================
 % (c) Diagram Batang
 % =========================
